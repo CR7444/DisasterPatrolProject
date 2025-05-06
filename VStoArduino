@@ -1,0 +1,15 @@
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT); // Solo como ejemplo
+}
+
+void loop() {
+  if (Serial.available()) {
+    String comando = Serial.readStringUntil('\n');
+    if (comando == "INICIAR") {
+      digitalWrite(LED_BUILTIN, HIGH);
+    } else if (comando == "PAUSAR") {
+      digitalWrite(LED_BUILTIN, LOW);
+    }
+  }
+}
